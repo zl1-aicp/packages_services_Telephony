@@ -163,4 +163,7 @@
          for the "Phantom Voicemail" issue where notifications that are
          impossible to dismiss on the Sprint network. -->
     <bool name="sprint_mwi_quirk">false</bool>
+
+    <!-- Consolidate the unanswered and unreachable call forward -->
+    <bool name="join_call_forward">false</bool>
 </resources>
