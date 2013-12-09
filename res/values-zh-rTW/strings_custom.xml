@@ -24,4 +24,5 @@
   <string name="vibrate_60_summary">撥出電話時,每60秒震動一次</string>
   <string name="battery_mode">省電模式</string>
   <string name="battery_mode_label">當裝置鎖定時,將網路模式切換至2G</string>
+  <string name="fdn_empty_number">"FDN 未更新：號碼不能為空。"</string>
 </resources>
