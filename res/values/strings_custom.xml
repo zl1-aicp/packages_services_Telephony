@@ -70,4 +70,9 @@
         <item>@string/summary_mute_ringer</item>
         <item>@string/summary_dismiss_call</item>
     </string-array>
+
+    <!-- My Phone Number field -->
+    <string name="phone_number_label">My phone number</string>
+    <string name="phone_number_summary">Set the phone number for this device</string>
+
 </resources>
