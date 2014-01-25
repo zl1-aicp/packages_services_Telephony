@@ -97,4 +97,8 @@
     <string name="enable_reverse_lookup_title">Enable reverse lookup</string>
     <string name="enable_reverse_lookup_summary">Look up names on incoming calls when number is not in phone book</string>
 
+    <!-- Disabling call end sound -->
+    <string name="call_end_sound_title">Call end tone</string>
+    <string name="call_end_sound_summary">Play tone on end call</string>
+
 </resources>
