@@ -88,4 +88,10 @@
     <!-- Mobile network settings screen, setting summary text when check box is clear -->
     <string name="national_roaming_disable">Do not connect to data services when nationally roaming</string>
 
+    <!-- Battery Saving Mode -->
+    <string name="battery_mode">Battery saving mode</string>
+    <!-- Mobile network settings screen, setting summary text when check box is selected -->
+    <string name="battery_mode_label">Set network to 2G when device is locked</string>
+
 </resources>
+
