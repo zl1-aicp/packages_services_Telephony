@@ -93,5 +93,9 @@
     <!-- Mobile network settings screen, setting summary text when check box is selected -->
     <string name="battery_mode_label">Set network to 2G when device is locked</string>
 
+    <!-- Noise suppression -->
+    <string name="noise_suppression_title">Noise suppression</string>
+    <string name="noise_suppression_summary">Enable noise suppression for calls</string>
+
 </resources>
 
