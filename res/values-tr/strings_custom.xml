@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2013, The Android Open Kang Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Call settings screen, message wait indicator name -->
+    <string name="mwi_notification_title">Bekleyen Mesaj Bildirimi</string>
+    <!-- Call settings screen, message wait indicator summary -->
+    <string name="mwi_notification_summary">Sesli Mesajlarda bekleyen mesaj bildirimini göster</string>
+    <string name="preference_category_interface">Arayüz</string>
+    <string name="non_intrusive_incall_title">Bölmeyen Arayüz</string>
+    <string name="non_intrusive_incall_summary">Gelen aramalarda çalışmakta olan uygulama kapanmaz</string>
+    <!-- In-call vibration -->
+    <string name="incall_vibration">Arama Esnasında Titreşim</string>
+    <string name="vibrate_outgoing">Arama kabul edildiğinde titre</string>
+    <string name="vibrate_call_waiting">Arama beklemeye alındığında titre</string>
+    <string name="vibrate_hangup">Arama reddedildiğinde titre</string>
+    <string name="vibrate_60_title">Her dakika titre</string>
+    <string name="vibrate_60_summary">Giden arama esnasında dakikada bir titreşimle uyarı verir</string>
+
+    <!-- My Phone Number field -->
+    <string name="phone_number_label">Benim Numaram</string>
+    <string name="phone_number_summary">Bu cihaz için numaranızı tanımlayın.</string>
+
+    <!-- Advanced Settings -->
+    <string name="advanced_setting">Gelişmiş Ayarlar</string>
+
+    <!-- Blacklist preferences -->
+    <string name="blacklist_title">Kara Liste</string>
+    <string name="blacklist_summary_disabled">Kapalı</string>
+    <string name="blacklist_summary">Kara Listede bulunan gelen çağrılar engellenecektir</string>
+
+    <!-- Blacklist notifications -->
+    <string name="blacklist_notification">%s den gelen arama engellendi.</string>
+    <string name="blacklist_notification_private_number">Özel numaradan gelen arama engellendi</string>
+    <string name="blacklist_notification_list_private">Özel Numara</string>
+    <string name="blacklist_notification_unknown_number">Bilinmeyen %s numarası engellendi</string>
+    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> arama engellendi</string>
+    <string name="unblock_number">Engellemeyi Kaldır</string>
+
+    <!-- Integrated phone directory -->
+    <string name="enable_suggestions_title">Önerileri Etkinleştirin</string>
+    <string name="enable_suggestions_summary">Numara tuşlanırken yakın yerlerin telefonlarını önerir</string>
+    <string name="enable_reverse_lookup_title">Telefon Sorgulamayı Etkinleştirin</string>
+    <string name="enable_reverse_lookup_summary">Gelen arama esnasında bilinmeyen numaraları araştırır</string>
+
+    <!-- Disabling call end sound -->
+    <string name="call_end_sound_title">Arama sonu sesi</string>
+    <string name="call_end_sound_summary">Arama sonu sesini çal</string>
+
+    <!-- Setting title for the flip action setting. -->
+    <string name="flip_action_title">Yüzüstü Çevirme Ayarları</string>
+
+    <!-- Dialog title of the flip action setting. -->
+    <string name="flip_action_dialog_title">Cihaz yüzüstü çevrildiğinde\u2026</string>
+
+    <!-- Setting summary for the flip action setting. -->
+    <string name="flip_action_summary">Yüzüstü çevrilmesi ile cihaz <xliff:g id="action">%s</xliff:g></string>
+
+    <!-- Values for flip action array entries -->
+    <string name="entry_do_nothing">Hiçbirşey Yapma</string>
+    <string name="entry_mute_ringer">Çalan Sesi Kıs</string>
+    <string name="entry_dismiss_call">Aramayı Reddet</string>
+    <string name="summary_do_nothing">hiçbirşey yapmaz.</string>
+    <string name="summary_mute_ringer">çalan zil sesini kısar.</string>
+    <string name="summary_dismiss_call">aramayı reddeder.</string>
+
+    <!-- Mobile network settings screen, setting check box name -->
+    <string name="national_roaming">Ulusal Veri Dolaşımı</string>
+
+    <!-- Mobile network settings screen, setting summary text when check box is selected -->
+    <string name="national_roaming_enable">Ulusal veri dolaşımında iken Mobil data servislerine bağlan</string>
+
+    <!-- Mobile network settings screen, setting summary text when check box is clear -->
+    <string name="national_roaming_disable">Ulusal veri dolaşımında iken Mobil data servislerine bağlanma</string>
+
+    <!-- Noise suppression -->
+    <string name="noise_suppression_title">Gürültü seslerinin engellenmesi</string>
+    <string name="noise_suppression_summary">Gürültü seslerinin engellenmesini etkinleştirin</string>
+
+</resources>
+
