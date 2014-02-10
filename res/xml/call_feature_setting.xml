@@ -44,6 +44,40 @@
         android:entryValues="@array/flip_action_setting_values"
         android:persistent="false" />
 
+    <PreferenceCategory
+        android:title="@string/number_lookup" >
+
+    <SwitchPreference
+        android:key="switch_enable_forward_lookup"
+        android:title="@string/enable_forward_lookup_title"
+        android:summary="@string/enable_forward_lookup_summary"
+        android:defaultValue="false"
+        android:persistent="false" />
+
+    <SwitchPreference
+        android:key="switch_enable_reverse_lookup"
+        android:title="@string/enable_reverse_lookup_title"
+        android:summary="@string/enable_reverse_lookup_summary"
+        android:defaultValue="false"
+        android:persistent="false" />
+
+    <PreferenceScreen
+        android:title="@string/choose_lookup_providers"
+        android:persistent="false">
+
+        <ListPreference
+            android:key="button_choose_forward_lookup_provider"
+            android:title="@string/choose_forward_lookup_provider_title"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="button_choose_reverse_lookup_provider"
+            android:title="@string/choose_reverse_lookup_provider_title"
+            android:persistent="false" />
+    </PreferenceScreen>
+
+  </PreferenceCategory>
+
    <PreferenceCategory	
       android:key="pref_advanced_settings"
       android:title="@string/advanced_setting">	
@@ -168,38 +202,6 @@
           android:targetPackage="com.android.phone"
           android:targetClass="com.android.phone.RespondViaSmsManager$Settings" />
   </PreferenceScreen>
-
-    <PreferenceCategory
-        android:title="@string/number_lookup" />
-
-    <SwitchPreference
-        android:key="switch_enable_forward_lookup"
-        android:title="@string/enable_forward_lookup_title"
-        android:summary="@string/enable_forward_lookup_summary"
-        android:defaultValue="false"
-        android:persistent="false" />
-
-    <SwitchPreference
-        android:key="switch_enable_reverse_lookup"
-        android:title="@string/enable_reverse_lookup_title"
-        android:summary="@string/enable_reverse_lookup_summary"
-        android:defaultValue="false"
-        android:persistent="false" />
-
-    <PreferenceScreen
-        android:title="@string/choose_lookup_providers"
-        android:persistent="false">
-
-        <ListPreference
-            android:key="button_choose_forward_lookup_provider"
-            android:title="@string/choose_forward_lookup_provider_title"
-            android:persistent="false" />
-
-        <ListPreference
-            android:key="button_choose_reverse_lookup_provider"
-            android:title="@string/choose_reverse_lookup_provider_title"
-            android:persistent="false" />
-    </PreferenceScreen>
 
   <PreferenceScreen
       android:key="button_fdn_key"
