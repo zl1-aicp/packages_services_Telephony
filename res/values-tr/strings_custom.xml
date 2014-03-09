@@ -45,18 +45,16 @@
     <string name="blacklist_summary">Kara Listede bulunan gelen çağrılar engellenecektir</string>
 
     <!-- Blacklist notifications -->
-    <string name="blacklist_notification">%s den gelen arama engellendi.</string>
-    <string name="blacklist_notification_private_number">Özel numaradan gelen arama engellendi</string>
-    <string name="blacklist_notification_list_private">Özel Numara</string>
-    <string name="blacklist_notification_unknown_number">Bilinmeyen %s numarası engellendi</string>
-    <string name="blacklist_notification_multiple"><xliff:g id="count">%d</xliff:g> arama engellendi</string>
-    <string name="unblock_number">Engellemeyi Kaldır</string>
-
-    <!-- Integrated phone directory -->
-    <string name="enable_suggestions_title">Önerileri Etkinleştirin</string>
-    <string name="enable_suggestions_summary">Numara tuşlanırken yakın yerlerin telefonlarını önerir</string>
-    <string name="enable_reverse_lookup_title">Telefon Sorgulamayı Etkinleştirin</string>
-    <string name="enable_reverse_lookup_summary">Gelen arama esnasında bilinmeyen numaraları araştırır</string>
+    <string name="blacklist_call_notification">%s\'dan gelen arama engellendi</string>
+    <string name="blacklist_call_notification_private_number">Özel numaradan gelen arama engellendi</string>
+    <string name="blacklist_call_notification_unknown_number">%s\'dan gelen arama engellendi</string>
+    <string name="blacklist_call_notification_multiple"><xliff:g id="count">%d</xliff:g> adet arama engellendi</string>
+    <string name="blacklist_message_notification"> %s\'dan gelen mesaj engellendi</string>
+    <string name="blacklist_message_notification_private_number">Özel numaradan gelen mesaj engellendi</string>
+    <string name="blacklist_message_notification_unknown_number"> Bilinmeyen %s\'dan gelen mesaj engellendi</string>
+    <string name="blacklist_message_notification_multiple"><xliff:g id="count">%d</xliff:g> adet mesaj engellendi</string>
+    <string name="blacklist_notification_list_private">Özel</string>
+    <string name="unblock_number">Engellemeyi kaldır</string>
 
     <!-- Disabling call end sound -->
     <string name="call_end_sound_title">Arama sonu sesi</string>
@@ -92,5 +90,17 @@
     <string name="noise_suppression_title">Gürültü seslerinin engellenmesi</string>
     <string name="noise_suppression_summary">Gürültü seslerinin engellenmesini etkinleştirin</string>
 
-</resources>
+    <!-- Number lookup -->
+    <string name="number_lookup">Telefon Sorgulama</string>
+    <string name="enable_forward_lookup_title">Yakın Yerleri Ara</string>
+    <string name="enable_forward_lookup_summary">Telefonda numara girilirken yakın yer önerilerini göster</string>
+    <string name="enable_people_lookup_title">Kişi Sorgulamasını Aç</string>
+    <string name="enable_people_lookup_summary">Telefonla arama yaparken çevrimiçi kişi önerilerini göster.</string>
+    <string name="enable_reverse_lookup_title">Telefon Sorgulamayı Aç</string>
+    <string name="enable_reverse_lookup_summary">Gelen arama esnasında bilinmeyen numara/yerleri geriye dönük araştırır</string>
+    <string name="choose_lookup_providers">Servis sağlayıcısını seçin</string>
+    <string name="choose_forward_lookup_provider_title">Yakın Yer Sorgulama için servis sağlayıcısını seçin</string>
+    <string name="choose_people_lookup_provider_title">Kişi sorgulama için servis sağlayıcısını seçin</string>
+    <string name="choose_reverse_lookup_provider_title">Bilinmeyen Yer/Numara Sorgulama için servis sağlayıcısını seçin</string>
 
+</resources>
