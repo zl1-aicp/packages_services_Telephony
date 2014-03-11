@@ -554,6 +554,7 @@ public class MobileNetworkSettings extends PreferenceActivity
                     UpdateEnabledNetworksValueAndSummary(modemNetworkMode);
                     // changes the mButtonPreferredNetworkMode accordingly to modemNetworkMode
                     mButtonPreferredNetworkMode.setValue(Integer.toString(modemNetworkMode));
+                    mButtonEnabledNetworks.setValue(Integer.toString(modemNetworkMode));
 
                     Intent intent = new Intent(PhoneToggler.ACTION_NETWORK_MODE_CHANGED);
                     intent.putExtra(PhoneToggler.EXTRA_NETWORK_MODE, modemNetworkMode);
