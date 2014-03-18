@@ -208,14 +208,10 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String SWITCH_ENABLE_FORWARD_LOOKUP =
             "switch_enable_forward_lookup";
-    private static final String SWITCH_ENABLE_PEOPLE_LOOKUP =
-            "switch_enable_people_lookup";
     private static final String SWITCH_ENABLE_REVERSE_LOOKUP =
             "switch_enable_reverse_lookup";
     private static final String BUTTON_CHOOSE_FORWARD_LOOKUP_PROVIDER =
             "button_choose_forward_lookup_provider";
-    private static final String BUTTON_CHOOSE_PEOPLE_LOOKUP_PROVIDER =
-            "button_choose_people_lookup_provider";
     private static final String BUTTON_CHOOSE_REVERSE_LOOKUP_PROVIDER =
             "button_choose_reverse_lookup_provider";
 
@@ -313,10 +309,8 @@ public class CallFeaturesSetting extends PreferenceActivity
     private ListPreference mFlipAction;
     private CheckBoxPreference mCallEndSound;
     private SwitchPreference mEnableForwardLookup;
-    private SwitchPreference mEnablePeopleLookup;
     private SwitchPreference mEnableReverseLookup;
     private ListPreference mChooseForwardLookupProvider;
-    private ListPreference mChoosePeopleLookupProvider;
     private ListPreference mChooseReverseLookupProvider;
 
     private class VoiceMailProvider {
@@ -660,11 +654,9 @@ public class CallFeaturesSetting extends PreferenceActivity
                 Settings.System.CALL_FLIP_ACTION_KEY, index);
             updateFlipActionSummary(index);
         } else if (preference == mEnableForwardLookup
-                || preference == mEnablePeopleLookup
                 || preference == mEnableReverseLookup) {
             saveLookupProviderSwitches(preference, (Boolean) objValue);
         } else if (preference == mChooseForwardLookupProvider
-                || preference == mChoosePeopleLookupProvider
                 || preference == mChooseReverseLookupProvider) {
             saveLookupProviders(preference, (String) objValue);
         }
@@ -1730,28 +1722,23 @@ public class CallFeaturesSetting extends PreferenceActivity
 
         mEnableForwardLookup = (SwitchPreference)
                 findPreference(SWITCH_ENABLE_FORWARD_LOOKUP);
-        mEnablePeopleLookup = (SwitchPreference)
-                findPreference(SWITCH_ENABLE_PEOPLE_LOOKUP);
         mEnableReverseLookup = (SwitchPreference)
                 findPreference(SWITCH_ENABLE_REVERSE_LOOKUP);
 
         mEnableForwardLookup.setOnPreferenceChangeListener(this);
-        mEnablePeopleLookup.setOnPreferenceChangeListener(this);
         mEnableReverseLookup.setOnPreferenceChangeListener(this);
 
         restoreLookupProviderSwitches();
 
         mChooseForwardLookupProvider = (ListPreference)
                 findPreference(BUTTON_CHOOSE_FORWARD_LOOKUP_PROVIDER);
-        mChoosePeopleLookupProvider = (ListPreference)
-                findPreference(BUTTON_CHOOSE_PEOPLE_LOOKUP_PROVIDER);
         mChooseReverseLookupProvider = (ListPreference)
                 findPreference(BUTTON_CHOOSE_REVERSE_LOOKUP_PROVIDER);
 
         mChooseForwardLookupProvider.setOnPreferenceChangeListener(this);
-        mChoosePeopleLookupProvider.setOnPreferenceChangeListener(this);
         mChooseReverseLookupProvider.setOnPreferenceChangeListener(this);
 
+        initLookupProviders();
         restoreLookupProviders();
 
         // create intent to bring up contact list
@@ -2128,10 +2115,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ENABLE_FORWARD_LOOKUP,
                     newValue ? 1 : 0);
-        } else if (pref == mEnablePeopleLookup) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.ENABLE_PEOPLE_LOOKUP,
-                    newValue ? 1 : 0);
         } else if (pref == mEnableReverseLookup) {
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ENABLE_REVERSE_LOOKUP,
@@ -2186,9 +2169,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         mEnableForwardLookup.setChecked(Settings.System.getInt(
                 getContentResolver(),
                 Settings.System.ENABLE_FORWARD_LOOKUP, 1) != 0 ? true : false);
-        mEnablePeopleLookup.setChecked(Settings.System.getInt(
-                getContentResolver(),
-                Settings.System.ENABLE_PEOPLE_LOOKUP, 1) != 0 ? true : false);
         mEnableReverseLookup.setChecked(Settings.System.getInt(
                 getContentResolver(),
                 Settings.System.ENABLE_REVERSE_LOOKUP, 1) != 0 ? true : false);
@@ -2207,18 +2187,6 @@ public class CallFeaturesSetting extends PreferenceActivity
                     (String) mChooseForwardLookupProvider.getEntryValues()[0]);
         } else {
             mChooseForwardLookupProvider.setValue(fProvider);
-        }
-
-        String pProvider = Settings.System.getString(
-                getContentResolver(),
-                Settings.System.PEOPLE_LOOKUP_PROVIDER);
-
-        if (pProvider == null) {
-            mChoosePeopleLookupProvider.setValueIndex(0);
-            saveLookupProviders(mChoosePeopleLookupProvider,
-                    (String) mChoosePeopleLookupProvider.getEntryValues()[0]);
-        } else {
-            mChoosePeopleLookupProvider.setValue(pProvider);
         }
 
         String rProvider = Settings.System.getString(
@@ -2241,11 +2209,6 @@ public class CallFeaturesSetting extends PreferenceActivity
             Settings.System.putString(
                     getContentResolver(),
                     Settings.System.FORWARD_LOOKUP_PROVIDER,
-                    newValue);
-        } else if (pref == mChoosePeopleLookupProvider) {
-            Settings.System.putString(
-                    getContentResolver(),
-                    Settings.System.PEOPLE_LOOKUP_PROVIDER,
                     newValue);
         } else if (pref == mChooseReverseLookupProvider) {
             Settings.System.putString(
