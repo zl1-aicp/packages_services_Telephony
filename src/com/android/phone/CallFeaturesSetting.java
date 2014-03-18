@@ -204,6 +204,7 @@ public class CallFeaturesSetting extends PreferenceActivity
 
     private static final String BUTTON_NON_INTRUSIVE_INCALL_KEY = "button_non_intrusive_incall";
     private static final String BUTTON_CALL_END_SOUND_KEY = "button_call_end_sound";
+    private static final String BUTTON_SMART_PHONE_CALL_KEY = "button_smart_phone_call";
     private static final String FLIP_ACTION_KEY = "flip_action";
 
     private static final String SWITCH_ENABLE_FORWARD_LOOKUP =
@@ -308,6 +309,7 @@ public class CallFeaturesSetting extends PreferenceActivity
     private PreferenceScreen mButtonBlacklist;
     private ListPreference mFlipAction;
     private CheckBoxPreference mCallEndSound;
+    private CheckBoxPreference mSmartCall;
     private SwitchPreference mEnableForwardLookup;
     private SwitchPreference mEnableReverseLookup;
     private ListPreference mChooseForwardLookupProvider;
@@ -576,6 +578,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         } else if (preference == mNonIntrusiveInCall){
             Settings.AOKP.putInt(getContentResolver(), Settings.AOKP.NON_INTRUSIVE_INCALL,
                     mNonIntrusiveInCall.isChecked() ? 1 : 0);
+            return true;
+        } else if (preference == mSmartCall){
+            Settings.AOKP.putInt(getContentResolver(), Settings.AOKP.SMART_PHONE_CALLER,
+                    mSmartCall.isChecked() ? 1 : 0);
             return true;
         } else if (preference == mCallEndSound){
             Settings.System.putInt(getContentResolver(), Settings.System.CALL_END_SOUND,
@@ -1720,6 +1726,10 @@ public class CallFeaturesSetting extends PreferenceActivity
         mCallEndSound.setChecked(Settings.System.getInt(getContentResolver(),
                 Settings.System.CALL_END_SOUND, 1) == 0 ? false : true);
 
+        mSmartCall = (CheckBoxPreference) findPreference(BUTTON_SMART_PHONE_CALL_KEY);
+        mSmartCall.setChecked(Settings.AOKP.getInt(getContentResolver(),
+                Settings.AOKP.SMART_PHONE_CALLER, 0) != 0 ? true : false);
+
         mEnableForwardLookup = (SwitchPreference)
                 findPreference(SWITCH_ENABLE_FORWARD_LOOKUP);
         mEnableReverseLookup = (SwitchPreference)
@@ -1783,7 +1793,7 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         };
 
-        // Blacklist screen - Needed for setting summary 
+        // Blacklist screen - Needed for setting summary
         mButtonBlacklist = (PreferenceScreen) prefSet.findPreference(BUTTON_BLACKLIST);
 
         ActionBar actionBar = getActionBar();
