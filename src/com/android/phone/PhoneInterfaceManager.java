@@ -333,7 +333,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
         if (TelephonyManager.getLteOnCdmaModeStatic() == PhoneConstants.LTE_ON_CDMA_TRUE) {
             preferredNetworkMode = PhoneConstants.NT_MODE_GLOBAL;
         }
-        int network = Settings.Secure.getInt(mApp.getContentResolver(),
+        int network = Settings.Global.getInt(mApp.getContentResolver(),
                 Settings.Global.PREFERRED_NETWORK_MODE, preferredNetworkMode);
         switch (network) {
             case PhoneConstants.NT_MODE_GSM_ONLY:
@@ -358,7 +358,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
         }
         mPhone.setPreferredNetworkType(network,
                 mMainThreadHandler.obtainMessage(CMD_TOGGLE_LTE));
-        Settings.Secure.putInt(mApp.getContentResolver(),
+        Settings.Global.putInt(mApp.getContentResolver(),
                 Settings.Global.PREFERRED_NETWORK_MODE, network);
 
         return;
@@ -373,7 +373,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub implements CallModele
         }
         mPhone.setPreferredNetworkType(network,
                 mMainThreadHandler.obtainMessage(CMD_TOGGLE_2G));
-        Settings.Secure.putInt(mApp.getContentResolver(),
+        Settings.Global.putInt(mApp.getContentResolver(),
                 Settings.Global.PREFERRED_NETWORK_MODE, network);
     }
 
