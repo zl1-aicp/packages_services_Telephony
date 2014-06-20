@@ -112,4 +112,21 @@
     <string name="smart_phone_call_title">Smart phone call</string>
     <string name="smart_phone_call_summary">Put on your ear, and this will automatically call current number in message or dialer</string>
 
+    <!-- Setting title for dialpad key padding. -->
+    <string name="dialkey_padding_title">Dialpad key padding</string>
+
+    <!-- Dialog title of the dialpad key padding setting. -->
+    <string name="dialkey_padding_dialog_title">Padding for dialpad keys</string>
+
+    <!-- Setting summary for the dialpad key padding setting. -->
+    <string name="dialkey_padding_summary">Amount of padding on top and bottom of dialpad number keys</string>
+
+    <!-- Values for dialpad key padding array entries. -->
+    <string name="entry_0dip">0dip</string>
+    <string name="entry_5dip">5dip</string>
+    <string name="entry_10dip">10dip</string>
+    <string name="entry_15dip">15dip</string>
+    <string name="entry_20dip">20dip</string>
+    <string name="entry_25dip">25dip</string>
+
 </resources>
