@@ -319,7 +319,7 @@
         <activity android:name="NetworkSetting"
                 android:label="@string/networks"
                 android:configChanges="orientation|screenSize|keyboardHidden"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+                android:theme="@style/Theme.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.settings.NETWORK_OPERATOR_SETTINGS" />
@@ -379,7 +379,7 @@
 
         <activity android:name="CellBroadcastSms"
             android:label="@string/cell_broadcast_sms"
-            android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+            android:theme="@style/Theme.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -444,7 +444,7 @@
         <!-- data roaming setting -->
         <activity android:name="RoamingSetting"
                 android:label="@string/roaming"
-                android:theme="@android:style/Theme.Holo.DialogWhenLarge">
+                android:theme="@style/Theme.Settings">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
