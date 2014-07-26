@@ -133,4 +133,9 @@
     <string name="detailed_incall_info_title">Detailed incall information</string>
     <string name="detailed_incall_info_summary">Display additional information (organization, position, city and nickname) on full incall screen.</string>
 
+    <!-- dialpad t9 search -->
+    <string name="preference_category_t9_dialpad_search">Dialpad T9 search</string>
+    <string name="t9_search_input_locale">T9 search input</string>
+    <string name="t9_search_input_locale_default">Default</string>
+
 </resources>
