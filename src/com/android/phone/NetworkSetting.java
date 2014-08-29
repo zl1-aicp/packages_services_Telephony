@@ -469,8 +469,6 @@ public class NetworkSetting extends PreferenceActivity
         } else {
             title = ni.getOperatorNumeric();
         }
-        if (!ni.getRadioTech().equals(""))
-            title += " " + mRatMap.get(ni.getRadioTech());
 
         if (ni.getState() == OperatorInfo.State.FORBIDDEN)
             title += getString(R.string.network_forbidden);
@@ -513,7 +511,6 @@ public class NetworkSetting extends PreferenceActivity
         mRatMap.put(String.valueOf(ServiceState.RIL_RADIO_TECHNOLOGY_LTE), "4G");
         mRatMap.put(String.valueOf(ServiceState.RIL_RADIO_TECHNOLOGY_HSPAP), "3G");
         mRatMap.put(String.valueOf(ServiceState.RIL_RADIO_TECHNOLOGY_GSM), "2G");
-        mRatMap.put(String.valueOf(ServiceState.RIL_RADIO_TECHNOLOGY_TD_SCDMA), "3G");
     }
 
     private void log(String msg) {
