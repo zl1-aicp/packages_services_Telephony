@@ -471,7 +471,7 @@ public class NetworkSetting extends PreferenceActivity
         }
 
         if (ni.getState() == OperatorInfo.State.FORBIDDEN)
-            title += getString(R.string.network_forbidden);
+            title += " " + getString(R.string.network_forbidden);
 
         return title;
     }
