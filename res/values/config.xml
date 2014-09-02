@@ -167,6 +167,9 @@
     <!-- Consolidate the unanswered and unreachable call forward -->
     <bool name="join_call_forward">false</bool>
 
+    <!-- whether hide roaming settings -->
+    <bool name="hide_roaming">false</bool>
+
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
 </resources>
