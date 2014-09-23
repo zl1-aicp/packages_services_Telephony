@@ -165,4 +165,14 @@
     <string name="emergency_number_exist">Emergency number already existed!</string>
     <string name="emergency_number_save_error">Emergency number too long!</string>
 
+    <!-- TD-SCDMA uses a variation of the GSM combos -->
+    <string-array name="enabled_networks_tdscdma_values" translatable="false">
+        <item>"20"</item>
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
+    <string-array name="enabled_networks_tdscdma_except_lte_values" translatable="false">
+        <item>"18"</item>
+        <item>"1"</item>
+    </string-array>
 </resources>

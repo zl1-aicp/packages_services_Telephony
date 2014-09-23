@@ -175,4 +175,7 @@
 
     <!-- Flag whether to enable Proximity setting-->
     <bool name="config_proximity_enable" translatable="false">false</bool>
+
+    <!-- Use TD-SDCMA 3G/4G technologies on this device -->
+    <bool name="config_enabled_tdscdma" translatable="false">false</bool>
 </resources>

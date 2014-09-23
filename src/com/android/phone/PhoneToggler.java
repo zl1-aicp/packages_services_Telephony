@@ -76,7 +76,18 @@ public class PhoneToggler extends BroadcastReceiver  {
                 Phone phone = getPhone();
                 int phoneType = phone.getPhoneType();
                 boolean isLteOnCdma = phone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE;
-
+                if (networkMode == Phone.NT_MODE_TD_SCDMA_ONLY
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_WCDMA
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_LTE
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_GSM
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_GSM_LTE
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_WCDMA_LTE
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_GSM_WCDMA_LTE
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_CDMA_EVDO_GSM_WCDMA
+                        || networkMode == Phone.NT_MODE_TD_SCDMA_LTE_CDMA_EVDO_GSM_WCDMA) {
+                    networkModeOk = true;
+                }
                 if (phoneType == PhoneConstants.PHONE_TYPE_GSM) {
                     if (networkMode == Phone.NT_MODE_GSM_ONLY
                             || networkMode == Phone.NT_MODE_GSM_UMTS
