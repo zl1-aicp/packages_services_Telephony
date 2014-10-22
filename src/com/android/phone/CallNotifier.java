@@ -837,7 +837,7 @@ public class CallNotifier extends Handler
                 if (VDBG) Log.v(LOG_TAG, "duration is " + callDurationMsec);
                 boolean vibOut = PhoneUtils.PhoneSettings.vibOutgoing(mApplication);
                 if (vibOut && callDurationMsec < 200) {
-                    mApplication.vibrate(100,0,0);
+                    mApplication.vibrate(100,200,0);
                 }
                 boolean vib60 = PhoneUtils.PhoneSettings.vibOn60Secs(mApplication);
                 if (vib60) {
