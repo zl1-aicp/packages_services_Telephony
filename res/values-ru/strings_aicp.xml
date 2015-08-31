@@ -13,8 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Proximity speaker -->
     <string name="display_category_prox_auto_speaker_title">Настройки громкой связи</string>
@@ -25,5 +24,10 @@
     <string name="prox_auto_speaker_incall_only_title">Только в окне вызова</string>
     <string name="prox_auto_speaker_incall_only_summary_on">Во время входящих звонков, активируется только после ответа</string>
     <string name="prox_auto_speaker_incall_only_summary_off">Активно во время любых звонков (по умолчанию)</string>
+
+    <!-- Proximity sensor enable -->
+    <string name="proximity_mode_title">Включить датчик приближения</string>
+    <string name="proximity_on_summary">Во время вызова использовать датчик приближения для отключения экрана</string>
+    <string name="proximity_off_summary">Во время вызова экран будет оставаться включённым</string>
 
 </resources>
