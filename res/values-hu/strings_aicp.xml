@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012-2015 SlimRoms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Proximity speaker -->
+    <string name="display_category_prox_auto_speaker_title">Közelségi hangszóró beállítások</string>
+    <string name="prox_auto_speaker_title">Automatikus közelségi hangszóró</string>
+    <string name="prox_auto_speaker_summary">Engedélyezze a hangszórót, ha eltávolítod az arcodtól</string>
+    <string name="prox_auto_speaker_delay_title">Közelségi hangszóró késleltetése</string>
+    <string name="prox_auto_speaker_delay_summary">Késleltetés ideje mielőtt a hangszóró aktív lesz</string>
+    <string name="prox_auto_speaker_incall_only_title">Csak hívás alatt</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">Kimenő hívások, hallgató csak akkor válik aktívvá, miután a fogadó fél válaszol</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">Hallgató aktív lesz a kagyló felemelésekor (alapértelemzett)</string>
+
+    <!-- Proximity sensor enable -->
+    <string name="proximity_mode_title">Közelségi szenzor engedélyezése</string>
+    <string name="proximity_on_summary">Hívás közben a közelségi szenzor kikapcsolja a képernyőt</string>
+    <string name="proximity_off_summary">Hívás közben a képernyő bekapcsolva marad</string>
+
+</resources>
