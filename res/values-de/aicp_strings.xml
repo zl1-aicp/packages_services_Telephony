@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2016 AICP
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Proximity speaker -->
+    <string name="display_category_prox_auto_speaker_title">Einstellungen für Freisprechen</string>
+    <string name="prox_auto_speaker_title">Automatische Aktivierung der Freisprechfunktion</string>
+    <string name="prox_auto_speaker_summary">Aktiviere den Lautsprecher, wenn das Gerät vom Gesicht genommen wird</string>
+    <string name="prox_auto_speaker_delay_title">Verzögerung fürs Freisprechen</string>
+    <string name="prox_auto_speaker_delay_summary">Zeitverzögerung bevor der Lautsprecher aktiviert wird</string>
+    <string name="prox_auto_speaker_incall_only_title">Nur während eines Gesprächs</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">Der Lautsprecher wird bei ausgehenden Anrufen aktiviert, sobald der Teilnehmer antwortet</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">Der Lautsprecher wird bei allen Gesprächen aktiviert, sobald abgehoben wird (Standard)</string>
+</resources>
