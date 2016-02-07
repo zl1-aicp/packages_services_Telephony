@@ -16,12 +16,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Proximity speaker -->
-    <string name="display_category_prox_auto_speaker_title">Einstellungen für Freisprechen</string>
-    <string name="prox_auto_speaker_title">Automatische Aktivierung der Freisprechfunktion</string>
-    <string name="prox_auto_speaker_summary">Aktiviere den Lautsprecher, wenn das Gerät vom Gesicht genommen wird</string>
+    <string name="display_category_prox_auto_speaker_title">Freisprech-Einstellungen</string>
+    <string name="prox_auto_speaker_title">Automatisches Freisprechen</string>
+    <string name="prox_auto_speaker_summary">Aktiviere den Lautsprecher, wenn das Gerät vom Ohr entfernt wird</string>
     <string name="prox_auto_speaker_delay_title">Verzögerung fürs Freisprechen</string>
     <string name="prox_auto_speaker_delay_summary">Zeitverzögerung bevor der Lautsprecher aktiviert wird</string>
     <string name="prox_auto_speaker_incall_only_title">Nur während eines Gesprächs</string>
     <string name="prox_auto_speaker_incall_only_summary_on">Der Lautsprecher wird bei ausgehenden Anrufen aktiviert, sobald der Teilnehmer antwortet</string>
-    <string name="prox_auto_speaker_incall_only_summary_off">Der Lautsprecher wird bei allen Gesprächen aktiviert, sobald abgehoben wird (Standard)</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">Der Lautsprecher ist bei allen Gesprächen aktiviert, sobald abgehoben wird (Standard)</string>
 </resources>
