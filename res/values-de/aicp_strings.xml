@@ -24,4 +24,12 @@
     <string name="prox_auto_speaker_incall_only_title">Nur während eines Gesprächs</string>
     <string name="prox_auto_speaker_incall_only_summary_on">Der Lautsprecher wird bei ausgehenden Anrufen aktiviert, sobald der Teilnehmer antwortet</string>
     <string name="prox_auto_speaker_incall_only_summary_off">Der Lautsprecher ist bei allen Gesprächen aktiviert, sobald abgehoben wird (Standard)</string>
+
+    <!-- Mobile network settings screen, setting check box name -->
+    <string name="national_roaming">Daten-Roaming</string>
+    <!-- Mobile network settings screen, setting summary text when check box is selected -->
+    <string name="national_roaming_enable">Mit Datendiensten verbinden, wenn Roaming aktiviert ist</string>
+    <!-- Mobile network settings screen, setting summary text when check box is clear -->
+    <string name="national_roaming_disable">Nicht mit Datendiensten verbinden, wenn Roaming aktiviert ist</string>
+
 </resources>
