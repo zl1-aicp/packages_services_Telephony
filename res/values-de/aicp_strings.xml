@@ -22,7 +22,7 @@
     <string name="prox_auto_speaker_delay_title">Verzögerung fürs Freisprechen</string>
     <string name="prox_auto_speaker_delay_summary">Zeitverzögerung bevor der Lautsprecher aktiviert wird</string>
     <string name="prox_auto_speaker_incall_only_title">Nur während eines Gesprächs</string>
-    <string name="prox_auto_speaker_incall_only_summary_on">Der Lautsprecher wird bei ausgehenden Anrufen aktiviert, sobald der Teilnehmer antwortet</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">Der Lautsprecher wird bei abgehenden Anrufen aktiviert, sobald der Teilnehmer antwortet</string>
     <string name="prox_auto_speaker_incall_only_summary_off">Der Lautsprecher ist bei allen Gesprächen aktiviert, sobald abgehoben wird (Standard)</string>
 
     <!-- Mobile network settings screen, setting check box name -->
