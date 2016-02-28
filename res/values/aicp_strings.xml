@@ -32,4 +32,8 @@
     <!-- Mobile network settings screen, setting summary text when check box is clear -->
     <string name="national_roaming_disable">Do not connect to data services when nationally roaming</string>
 
+    <!-- Title for the option managing whether or not to use intrusive incall UI. -->
+    <string name="use_intrusive_call_title">Intrusive incoming calls</string>
+    <string name="use_intrusive_call_summary">Show a full screen notification on incoming call even when not on lockscreen</string>
+
 </resources>

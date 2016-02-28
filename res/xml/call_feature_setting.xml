@@ -53,6 +53,12 @@
         android:defaultValue="true" />
 
     <SwitchPreference
+        android:key="use_intrusive_call"
+        android:title="@string/use_intrusive_call_title"
+        android:summary="@string/use_intrusive_call_summary"
+        android:persistent="false" />
+
+    <SwitchPreference
         android:key="button_auto_retry_key"
         android:title="@string/auto_retry_mode_title"
         android:persistent="false"
