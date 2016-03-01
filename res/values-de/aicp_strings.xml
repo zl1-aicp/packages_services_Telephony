@@ -32,4 +32,8 @@
     <!-- Mobile network settings screen, setting summary text when check box is clear -->
     <string name="national_roaming_disable">Nicht mit Datendiensten verbinden, wenn Roaming aktiviert ist</string>
 
+    <!-- Title for the option managing whether or not to use intrusive incall UI. -->
+    <string name="use_intrusive_call_title">Aufdringliche Meldung eingehender Anrufe</string>
+    <string name="use_intrusive_call_summary">Zeigt eine Vollbild-Benachrichtigung bei eingehenden Anrufen wie bei gesperrtem Gerät</string>
+
 </resources>
