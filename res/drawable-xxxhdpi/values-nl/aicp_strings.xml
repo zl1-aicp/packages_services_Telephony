@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     Copyright (C) 2016 AICP
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Proximity speaker -->
+    <string name="display_category_prox_auto_speaker_title">Instellingen Auto-handsfree</string>
+    <string name="prox_auto_speaker_title">Auto-handsfree</string>
+    <string name="prox_auto_speaker_summary">Activeer de speaker zodra het apparaat van je oor gehaald wordt</string>
+    <string name="prox_auto_speaker_delay_title">Vertraging voor Auto-handsfree</string>
+    <string name="prox_auto_speaker_delay_summary">Vertraging voordat de speaker ingeschakeld wordt</string>
+    <string name="prox_auto_speaker_incall_only_title">Alleen tijdens een gesprek</string>
+    <string name="prox_auto_speaker_incall_only_summary_on">Bij uitgaande oproepen wordt de speaker pas ingeschakeld indien er wordt opgenomen</string>
+    <string name="prox_auto_speaker_incall_only_summary_off">De speaker wordt bij alle inkomende en uitgaande gesprekken ingeschakeld, zodra er een kiestoon is (standaard)</string>
+
+    <!-- Mobile network settings screen, setting check box name -->
+    <string name="national_roaming">Dataroaming (nationaal)</string>
+    <!-- Mobile network settings screen, setting summary text when check box is selected -->
+    <string name="national_roaming_enable">Verbinding maken met datadiensten als dataroaming is ingeschakeld</string>
+    <!-- Mobile network settings screen, setting summary text when check box is clear -->
+    <string name="national_roaming_disable">Geen verbinding maken met datadiensten als dataroaming is ingeschakeld</string>
+
+    <!-- Title for the option managing whether or not to use intrusive incall UI. -->
+    <string name="use_intrusive_call_title">Opdringerige melding bij inkomende oproepen</string>
+    <string name="use_intrusive_call_summary">Toont bij inkomende oproepen een notificatie op volledig scherm, of het toestel vergrendeld is of niet</string>
+</resources>
