@@ -254,6 +254,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     private static final int EVENT_ENABLE_MODEM_DONE = 69;
     private static final int CMD_GET_MODEM_STATUS = 70;
     private static final int EVENT_GET_MODEM_STATUS_DONE = 71;
+    private static final int CMD_TOGGLE_2G = 998;
 
     // Parameters of select command.
     private static final int SELECT_COMMAND = 0xA4;
@@ -276,6 +277,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
     private SubscriptionController mSubscriptionController;
     private SharedPreferences mTelephonySharedPreferences;
     private PhoneConfigurationManager mPhoneConfigurationManager;
+    private int pNetwork;
 
     private static final String PREF_CARRIERS_ALPHATAG_PREFIX = "carrier_alphtag_";
     private static final String PREF_CARRIERS_NUMBER_PREFIX = "carrier_number_";
@@ -1443,6 +1445,38 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
         } finally {
             Binder.restoreCallingIdentity(identity);
         }
+    }
+
+    public void toggle2G(boolean on) {
+        int network = -1;
+        final int phoneSubId = mSubscriptionController.getDefaultDataSubId();
+        Phone aphone = getPhone(phoneSubId);
+
+        if (on) {
+            if(phoneSubId != 0) {
+                pNetwork = android.provider.Settings.Global.getInt(mApp.getContentResolver(),
+                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE + phoneSubId, 0);
+            } else {
+                pNetwork = android.provider.Settings.Global.getInt(mApp.getContentResolver(),
+                    android.provider.Settings.Global.PREFERRED_NETWORK_MODE, 0);
+            }
+            network = TelephonyManager.NETWORK_MODE_GSM_ONLY;
+        } else {
+            network = pNetwork;
+        }
+
+        aphone.setPreferredNetworkType(network,
+                mMainThreadHandler.obtainMessage(CMD_TOGGLE_2G));
+        if(phoneSubId != 0) {
+            android.provider.Settings.Global.putInt(mApp.getContentResolver(),
+                android.provider.Settings.Global.PREFERRED_NETWORK_MODE + phoneSubId, network);
+        } else {
+            android.provider.Settings.Global.putInt(mApp.getContentResolver(),
+                android.provider.Settings.Global.PREFERRED_NETWORK_MODE, network);
+        }
+
+        log("DefaultSubId: " + phoneSubId);
+        log("NetworkType: " + network);
     }
 
     public boolean supplyPin(String pin) {
