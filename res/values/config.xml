@@ -222,6 +222,9 @@
     <!-- Whether the emergency only account can make emergency calls -->
     <bool name="config_pstnCanPlaceEmergencyCalls">true</bool>
 
+    <!-- Whether the cellular radio is allowed to be power down when the Bluetooth can provide the data/call capabilities -->
+    <bool name="config_allowRadioPowerDownOnBluetooth">false</bool>
+
     <!-- To disable/enable CallForwardUnconditional Timer -->
     <bool name="config_enable_cfu_time">false</bool>
 
@@ -255,7 +258,4 @@
          This needs to be re designed as the same config is
          used by Dialer also to make a speed dial from Dialer-->
     <integer name="speed_dial_emergency_number_assigned_key">9</integer>
-
-    <!-- Whether the cellular radio is allowed to be power down when the Bluetooth can provide the data/call capabilities -->
-    <bool name="config_allowRadioPowerDownOnBluetooth">false</bool>
 </resources>

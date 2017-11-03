@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Advanced Settings -->
-  <string name="incall_screen_settings">Ajustaments de trucada en pantalla</string>
+  <string name="incall_screen_settings">Configuració de trucada en pantalla</string>
   <string name="show_ssn_label">Notificació d\'esdeveniments</string>
   <string name="show_ssn_summary">Mostra una notificació pels diferents esdeveniments de xarxa relacionats amb la gestió de trucades</string>
   <!-- Toasts for various transient network events -->
@@ -81,4 +81,7 @@
   <string name="choose_network_mode_title">Tria un mode de xarxa</string>
   <string name="choose_network_mode_system_default">Per defecte del sistema</string>
   <string name="cdma_call_settings">Configuració de trucades CDMA</string>
+  <!-- Mobile network settings, COLP -->
+  <string name="connected_line_identification_title">Identificació de línia connectada</string>
+  <string name="connected_line_identification_summary">Deshabilita aquesta opció si els números dels destinataris no apareixen al registre de trucades</string>
 </resources>
