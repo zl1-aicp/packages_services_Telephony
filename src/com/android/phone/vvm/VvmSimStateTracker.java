@@ -133,8 +133,7 @@ public class VvmSimStateTracker extends BroadcastReceiver {
                 int subId = intent.getIntExtra(PhoneConstants.SUBSCRIPTION_KEY,
                         SubscriptionManager.INVALID_SUBSCRIPTION_ID);
 
-                SubscriptionManager subscriptionManager = SubscriptionManager.from(context);
-                if (!subscriptionManager.isActiveSubId(subId)) {
+                if (!SubscriptionManager.isValidSubscriptionId(subId)) {
                     VvmLog.i(TAG, "Received SIM change for invalid subscription id.");
                     checkRemovedSim(context);
                     return;

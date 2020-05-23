@@ -34,8 +34,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PersistableBundle;
-import android.os.RemoteException;
-import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
@@ -61,7 +59,6 @@ import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneFactory;
-import com.android.internal.telephony.SubscriptionController;
 import com.android.internal.telephony.TelephonyCapabilities;
 import com.android.internal.telephony.util.NotificationChannelController;
 import com.android.phone.settings.VoicemailSettingsActivity;
@@ -70,8 +67,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-
-import org.codeaurora.internal.IExtTelephony;
 
 /**
  * NotificationManager-related utility code for the Phone app.
@@ -91,8 +86,6 @@ public class NotificationMgr {
 
     private static final String MWI_SHOULD_CHECK_VVM_CONFIGURATION_KEY_PREFIX =
             "mwi_should_check_vvm_configuration_state_";
-
-    private static final String EXTRA_SUB_ID = "sub_id";
 
     // notification types
     static final int MMI_NOTIFICATION = 1;
@@ -281,7 +274,7 @@ public class NotificationMgr {
         Log.i(LOG_TAG, "updateMwi(): subId " + subId + " update to " + visible);
         mMwiVisible.put(subId, visible);
 
-        if (visible && isUiccCardProvisioned(subId)) {
+        if (visible) {
             if (phone == null) {
                 Log.w(LOG_TAG, "Found null phone for: " + subId);
                 return;
@@ -392,7 +385,7 @@ public class NotificationMgr {
                         UserManager.DISALLOW_OUTGOING_CALLS, userHandle)
                         && !user.isManagedProfile()) {
                     if (!maybeSendVoicemailNotificationUsingDefaultDialer(phone, vmCount, vmNumber,
-                            pendingIntent, isSettingsIntent, userHandle, isRefresh, subId)) {
+                            pendingIntent, isSettingsIntent, userHandle, isRefresh)) {
                         mNotificationManager.notifyAsUser(
                                 Integer.toString(subId) /* tag */,
                                 VOICEMAIL_NOTIFICATION,
@@ -410,7 +403,7 @@ public class NotificationMgr {
                         UserManager.DISALLOW_OUTGOING_CALLS, userHandle)
                         && !user.isManagedProfile()) {
                     if (!maybeSendVoicemailNotificationUsingDefaultDialer(phone, 0, null, null,
-                            false, userHandle, isRefresh, subId)) {
+                            false, userHandle, isRefresh)) {
                         mNotificationManager.cancelAsUser(
                                 Integer.toString(subId) /* tag */,
                                 VOICEMAIL_NOTIFICATION,
@@ -439,7 +432,7 @@ public class NotificationMgr {
      */
     private boolean maybeSendVoicemailNotificationUsingDefaultDialer(Phone phone, Integer count,
             String number, PendingIntent pendingIntent, boolean isSettingsIntent,
-            UserHandle userHandle, boolean isRefresh, int subId) {
+            UserHandle userHandle, boolean isRefresh) {
 
         if (shouldManageNotificationThroughDefaultDialer(userHandle)) {
             Intent intent = getShowVoicemailIntentForDefaultDialer(userHandle);
@@ -448,7 +441,6 @@ public class NotificationMgr {
             intent.putExtra(TelephonyManager.EXTRA_PHONE_ACCOUNT_HANDLE,
                     PhoneUtils.makePstnPhoneAccountHandle(phone));
             intent.putExtra(TelephonyManager.EXTRA_IS_REFRESH, isRefresh);
-            intent.putExtra(EXTRA_SUB_ID, subId);
             if (count != null) {
                 intent.putExtra(TelephonyManager.EXTRA_NOTIFICATION_COUNT, count);
             }
@@ -510,7 +502,7 @@ public class NotificationMgr {
      */
     /* package */ void updateCfi(int subId, boolean visible, boolean isRefresh) {
         logi("updateCfi: subId= " + subId + ", visible=" + (visible ? "Y" : "N"));
-        if (visible && isUiccCardProvisioned(subId)) {
+        if (visible) {
             // If Unconditional Call Forwarding (forward all calls) for VOICE
             // is enabled, just show a notification.  We'll default to expanded
             // view for now, so the there is less confusion about the icon.  If
@@ -597,17 +589,6 @@ public class NotificationMgr {
 
         // "Mobile network settings" screen / dialog
         Intent intent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
-        boolean isVendorNetworkSettingApkAvailable =
-                PhoneUtils.isNetworkSettingsApkAvailable();
-        if (isVendorNetworkSettingApkAvailable) {
-            // prepare intent to start qti MobileNetworkSettings activity
-            intent.setComponent(new ComponentName("com.qualcomm.qti.networksetting",
-                    "com.qualcomm.qti.networksetting.MobileNetworkSettings"));
-        } else {
-            // vendor MobileNetworkSettings not available, launch the default activity
-            log("vendor MobileNetworkSettings is not available");
-        }
-
         intent.putExtra(Settings.EXTRA_SUB_ID, subId);
         PendingIntent contentIntent = PendingIntent.getActivity(mContext, subId, intent, 0);
 
@@ -625,9 +606,6 @@ public class NotificationMgr {
                 .setContentText(contentText)
                 .setChannel(NotificationChannelController.CHANNEL_ID_MOBILE_DATA_STATUS)
                 .setContentIntent(contentIntent);
-        if (isVendorNetworkSettingApkAvailable) {
-            builder.setAutoCancel(true);
-        }
         final Notification notif =
                 new Notification.BigTextStyle(builder).bigText(contentText).build();
         mNotificationManager.notifyAsUser(
@@ -756,18 +734,9 @@ public class NotificationMgr {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                 Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
         // Use MobileNetworkSettings to handle the selection intent
-        boolean isVendorNetworkSettingApkAvailable =
-                PhoneUtils.isNetworkSettingsApkAvailable();
-        if (isVendorNetworkSettingApkAvailable) {
-            // Use Vendor NetworkSetting to handle the selection intent
-            intent.setComponent(new ComponentName("com.qualcomm.qti.networksetting",
-                    "com.qualcomm.qti.networksetting.MobileNetworkSettings"));
-        } else {
-            // Use aosp NetworkSetting to handle the selection intent
-            intent.setComponent(new ComponentName(
-                    mContext.getString(R.string.mobile_network_settings_package),
-                    mContext.getString(R.string.mobile_network_settings_class)));
-        }
+        intent.setComponent(new ComponentName(
+                mContext.getString(R.string.mobile_network_settings_package),
+                mContext.getString(R.string.mobile_network_settings_class)));
         intent.putExtra(GsmUmtsOptions.EXTRA_SUB_ID, subId);
         builder.setContentIntent(PendingIntent.getActivity(mContext, 0, intent, 0));
         mNotificationManager.notifyAsUser(
@@ -935,24 +904,4 @@ public class NotificationMgr {
     private static long getTimeStamp() {
         return SystemClock.elapsedRealtime();
     }
-
-    private boolean isUiccCardProvisioned(int subId) {
-        final int PROVISIONED = 1;
-        final int INVALID_STATE = -1;
-        int provisionStatus = INVALID_STATE;
-        IExtTelephony mExtTelephony = IExtTelephony.Stub
-                .asInterface(ServiceManager.getService("extphone"));
-        int slotId = SubscriptionController.getInstance().getSlotIndex(subId);
-        try {
-            //get current provision state of the SIM.
-            provisionStatus = mExtTelephony.getCurrentUiccCardProvisioningStatus(slotId);
-        } catch (RemoteException ex) {
-            provisionStatus = INVALID_STATE;
-            if (DBG) log("Failed to get status for slotId: "+ slotId +" Exception: " + ex);
-        } catch (NullPointerException ex) {
-            provisionStatus = INVALID_STATE;
-            if (DBG) log("Failed to get status for slotId: "+ slotId +" Exception: " + ex);
-        }
-        return provisionStatus == PROVISIONED;
-   }
 }

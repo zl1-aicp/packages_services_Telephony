@@ -101,7 +101,6 @@
     <protected-broadcast android:name= "android.telephony.action.SUBSCRIPTION_SPECIFIC_CARRIER_IDENTITY_CHANGED" />
     <protected-broadcast android:name= "android.telephony.action.NETWORK_COUNTRY_CHANGED" />
     <protected-broadcast android:name= "android.telephony.action.PRIMARY_SUBSCRIPTION_LIST_CHANGED" />
-    <protected-broadcast android:name="android.intent.action.VOWIFI_ENABLED" />
 
     <!-- For Vendor Debugging in Telephony -->
     <protected-broadcast android:name="android.telephony.action.ANOMALY_REPORTED" />
@@ -221,8 +220,6 @@
     <uses-permission android:name="android.permission.READ_PRECISE_PHONE_STATE" />
     <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
     <uses-permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"/>
-
-    <uses-permission android:name="com.qti.permission.BIND_QTI_IMS_SERVICE" />
 
     <application android:name="PhoneApp"
             android:persistent="true"
@@ -348,7 +345,7 @@
         <activity android:name="GsmUmtsCallBarringOptions"
                 android:label="@string/labelCallBarring"
                 android:configChanges="orientation|screenSize|keyboardHidden"
-                android:theme="@style/DialerSettingsLight">
+                android:theme="@style/CallSettingsWithoutDividerTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -356,15 +353,6 @@
 
         <activity android:name="GsmUmtsAdditionalCallOptions"
                 android:label="@string/labelGSMMore"
-                android:configChanges="orientation|screenSize|keyboardHidden"
-                android:theme="@style/DialerSettingsLight">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="CallForwardType"
-                android:label="@string/call_forward_option"
                 android:configChanges="orientation|screenSize|keyboardHidden"
                 android:theme="@style/DialerSettingsLight">
             <intent-filter>
@@ -528,16 +516,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="LimitedServiceActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-            android:taskAffinity=""
-            android:theme="@android:style/Theme.Translucent.NoTitleBar">
-            <intent-filter android:priority="1000">
-                <action android:name = "android.intent.action.VOWIFI_ENABLED" />
-            </intent-filter>
-        </activity>
-
         <!-- Start SIP -->
         <service android:name="com.android.services.telephony.sip.SipConnectionService"
                  android:label="@string/sip_connection_service_label"
@@ -673,6 +651,5 @@
                 <action android:name="android.telephony.data.DataService" />
             </intent-filter>
         </service>
-        <uses-library android:name="ims-ext-common"/>
     </application>
 </manifest>

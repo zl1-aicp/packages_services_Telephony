@@ -26,7 +26,6 @@ import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.Phone;
-import com.android.phone.PhoneUtils;
 import com.android.internal.telephony.imsphone.ImsPhoneConnection;
 import com.android.phone.settings.SettingsConstants;
 
@@ -288,7 +287,10 @@ final class CdmaConnection extends TelephonyConnection {
     }
 
     private boolean isEmergency() {
-        return PhoneUtils.isLocalEmergencyNumber(getAddress().getSchemeSpecificPart());
+        Phone phone = getPhone();
+        return phone != null &&
+                PhoneNumberUtils.isLocalEmergencyNumber(
+                    phone.getContext(), getAddress().getSchemeSpecificPart());
     }
 
     /**
