@@ -936,20 +936,12 @@ public class NotificationMgr {
         return SystemClock.elapsedRealtime();
     }
 
-    private IExtTelephony getIExtTelephony() {
-        try {
-            IExtTelephony ex = IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
-            return ex;
-        } catch (NoClassDefFoundError ex) {
-            return null;
-        }
-    }
-
     private boolean isUiccCardProvisioned(int subId) {
         final int PROVISIONED = 1;
         final int INVALID_STATE = -1;
         int provisionStatus = INVALID_STATE;
-        IExtTelephony mExtTelephony = getIExtTelephony();
+        IExtTelephony mExtTelephony = IExtTelephony.Stub
+                .asInterface(ServiceManager.getService("extphone"));
         if (mExtTelephony != null) {
             int slotId = SubscriptionController.getInstance().getSlotIndex(subId);
             try {
