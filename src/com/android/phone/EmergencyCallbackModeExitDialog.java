@@ -37,7 +37,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import com.android.internal.telephony.EcbmHandler;
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.TelephonyIntents;
 
@@ -69,14 +68,12 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnCance
     private boolean mInEmergencyCall = false;
     private static final int ECM_TIMER_RESET = 1;
     private Phone mPhone = null;
-    private EcbmHandler mEcbmHandler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mPhone = PhoneGlobals.getInstance().getPhoneInEcm();
-        mEcbmHandler = EcbmHandler.getInstance();
         // Check if phone is in Emergency Callback Mode. If not, exit.
         if (mPhone == null || !mPhone.isInEcm()) {
             Log.i(TAG, "ECMModeExitDialog launched - isInEcm: false" + " phone:" + mPhone);
@@ -94,7 +91,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnCance
         waitForConnectionCompleteThread.start();
 
         // Register ECM timer reset notfication
-        mEcbmHandler.registerForEcmTimerReset(mTimerResetHandler, ECM_TIMER_RESET, null);
+        mPhone.registerForEcmTimerReset(mTimerResetHandler, ECM_TIMER_RESET, null);
 
         // Register receiver for intent closing the dialog
         IntentFilter filter = new IntentFilter();
@@ -111,8 +108,8 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnCance
             // Receiver was never registered - silently ignore.
         }
         // Unregister ECM timer reset notification
-        if (mEcbmHandler != null) {
-            mEcbmHandler.unregisterForEcmTimerReset(mHandler);
+        if (mPhone != null) {
+            mPhone.unregisterForEcmTimerReset(mHandler);
         }
     }
 
@@ -229,11 +226,7 @@ public class EmergencyCallbackModeExitDialog extends Activity implements OnCance
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,int whichButton) {
                                     // User clicked Yes. Exit Emergency Callback Mode.
-                                    try {
-                                        mEcbmHandler.exitEmergencyCallbackMode();
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
+                                    mPhone.exitEmergencyCallbackMode();
 
                                     // Show progress dialog
                                     showDialog(EXIT_ECM_PROGRESS_DIALOG);

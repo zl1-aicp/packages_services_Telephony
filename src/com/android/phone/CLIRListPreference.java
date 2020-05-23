@@ -47,15 +47,10 @@ public class CLIRListPreference extends ListPreference {
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
 
-        if (positiveResult && (getValue() != null)) {
-            mPhone.setOutgoingCallerIdDisplay(convertValueToCLIRMode(getValue()),
-                    mHandler.obtainMessage(MyHandler.MESSAGE_SET_CLIR));
-            if (mTcpListener != null) {
-                mTcpListener.onStarted(this, false);
-            }
-        } else {
-            Log.d(LOG_TAG, String.format("onDialogClosed: positiveResult=%b value=%s -- do nothing",
-                    positiveResult, getValue()));
+        mPhone.setOutgoingCallerIdDisplay(convertValueToCLIRMode(getValue()),
+                mHandler.obtainMessage(MyHandler.MESSAGE_SET_CLIR));
+        if (mTcpListener != null) {
+            mTcpListener.onStarted(this, false);
         }
     }
 
