@@ -106,15 +106,6 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         }
     };
 
-    private static IExtTelephony getIExtTelephony() {
-        try {
-            IExtTelephony ex = IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
-            return ex;
-        } catch (NoClassDefFoundError ex) {
-            return null;
-        }
-    }
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -123,7 +114,8 @@ public class PhoneAccountSettingsFragment extends PreferenceFragment
         mTelephonyManager = TelephonyManager.from(getActivity());
         mSubscriptionManager = SubscriptionManager.from(getActivity());
 
-        IExtTelephony extTelephony = getIExtTelephony();
+        IExtTelephony extTelephony =
+                IExtTelephony.Stub.asInterface(ServiceManager.getService("extphone"));
 
         try {
             if (extTelephony != null) {
